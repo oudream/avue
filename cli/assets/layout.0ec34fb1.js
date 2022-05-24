@@ -1,0 +1,1 @@
+import{_ as s,r as a,o as e,j as o,u as c,K as l,H as _}from"./index.20fd9f9c.js";const u={};function i(t,p){const r=a("router-view");return e(),o(r,null,{default:c(({Component:n})=>[(e(),o(l,{include:t.$store.getters.tagsKeep},[(e(),o(_(n)))],1032,["include"]))]),_:1})}var m=s(u,[["render",i]]);export{m as default};

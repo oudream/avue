@@ -1,0 +1,1 @@
+var e=()=>({translate:!1,searchLabelWidth:100,excelBtn:!0,labelWidth:110,selection:!0,tip:!1,index:!0,align:"center",headerAlign:"center",border:!0,stripe:!0,column:[{label:"\u59D3\u540D",prop:"name",search:!0},{label:"\u6027\u522B",prop:"sex",type:"select",dicData:[{label:"\u7537",value:0},{label:"\u5973",value:1}],search:!0}]});export{e as default};

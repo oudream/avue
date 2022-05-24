@@ -1,0 +1,1 @@
+import{_ as c,o as r,c as a}from"./index.20fd9f9c.js";const n={name:"authredirect",created(){window.close();const e=this.$route.query,o=e.state,t=e.code;window.opener.location.href=`${window.location.origin}/#/login?state=${o}&code=${t}`}};function s(e,o,t,i,d,p){return r(),a("div")}var l=c(n,[["render",s]]);export{l as default};
