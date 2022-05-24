@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+  <script src="https://cdn.staticfile.org/dayjs/1.9.4/dayjs.min.js"></script>
+  <script src="./cdn/vant/vant.min.js"></script>
+  <script src="./lib/avue-mobile.min.js"></script>
+  <link rel="stylesheet" href="./cdn/vant/index.css" />
+  <link rel="stylesheet" href="./lib/index.css">
+  <script src="./cdn/Bmob-1.7.0.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cozmo.github.io/jsQR/jsQR.js"></script>
+  <title>微信扫码支付</title>
+</head>
+
+<body>
+  <div id="app">
+    <van-form @submit="onSubmit">
+      <van-field v-model="form.money" name="金额" label="金额" placeholder="金额"
+        :rules="[{ required: true, message: '请填写金额' }]"></van-field>
+      <van-field v-model="form.code" name="付款吗" label="付款吗" placeholder="付款吗"
+        :rules="[{ required: true, message: '请填写付款吗' }]">
+        <template #button>
+          <input style="position: absolute;z-index: 1;opacity: 0;" name="video" type="file" accept="image/*"
+            capture="camera" @change="onFileChange">
+          <van-button size="small" type="primary">扫二维码</van-button>
+        </template>
+      </van-field>
+      <div style="margin: 16px;">
+        <van-button round block type="info" native-type="submit">提交</van-button>
+      </div>
+    </van-form>
+    <canvas id="qrcanvas" hidden></canvas>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        form: {
+          money: 1,
+          code: ''
+        }
+      }
+    },
+    created() {
+
+    },
+    methods: {
+      onFileChange(e) {
+        const self = this;
+        const file = e.target.files[0];
+        let reader = new FileReader();
+        reader.onload = (evt) => {
+          let base64 = evt.target.result;
+          var c = document.getElementById("qrcanvas");
+          var ctx = c.getContext("2d");
+
+          var img = new Image();
+          img.src = base64;
+          img.onload = () => {
+            $("#qrcanvas").attr("width", img.width)
+            $("#qrcanvas").attr("height", img.height)
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+            var imageData = ctx.getImageData(0, 0, img.width, img.height);
+            const code = jsQR(imageData.data, imageData.width, imageData.height, {
+              inversionAttempts: "dontInvert",
+            });
+            this.form.code = code.data;
+          };
+        };
+        reader.readAsDataURL(file);
+
+      },
+      onSubmit() {
+        axios.get('./wechatPay', {
+          params: this.form
+        })
+      },
+    }
+  })
+</script>
+
+</html>
