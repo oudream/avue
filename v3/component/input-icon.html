@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_567566_pwc3oottzol.css">
+  <script src=https://cdn.staticfile.org/echarts/4.2.1-rc1/echarts.min.js></script>
+  <script src="//at.alicdn.com/t/font_2621503_zcbiqy2g1i.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.13.2/theme-chalk/index.css">
+  <!-- 动画需要的包 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/animate.css/3.7.0/animate.min.css" />
+  <link rel="shortcut icon" href="" type="image/x-icon" />
+  <!-- 屏幕截图需要的包 -->
+  <script src="https://cdn.staticfile.org/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+  <!-- 导入表格需要的包 -->
+  <script src="https://cdn.staticfile.org/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+  <script src="/cdn/xlsx.full.min.js"></script>
+  <!-- 模拟数据需要的包 -->
+  <script src="https://cdn.staticfile.org/Mock.js/1.0.1-beta3/mock-min.js"></script>
+  <!-- 拖拽包 -->
+  <script src="https://cdn.staticfile.org/Sortable/1.10.0-rc2/Sortable.min.js"></script>
+  <!-- 高德地图包 -->
+  <script type="text/javascript"
+    src='https://webapi.amap.com/maps?v=1.4.11&key=7ab53b28352e55dc5754699add0ad862&plugin=AMap.PlaceSearch'></script>
+  <script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+  <!-- 七牛oss上传 -->
+  <script src="/cdn/CryptoJS.js"></script>
+  <!-- 流程包 -->
+  <script src="https://cdn.staticfile.org/jsPlumb/2.11.1/js/jsplumb.min.js"></script>
+  <!-- 阿里云oss上传 -->
+  <script src="/cdn/aliyun-oss-sdk.min.js"></script>
+  <!-- highlight的包 -->
+  <script src="/cdn/highlight/highlight.pack.js"></script>
+  <link rel="stylesheet" href="/cdn/highlight/dark.css">
+  <script src="/cdn/Bmob-1.7.0.min.js"></script>
+  <!-- jspdf -->
+  <script src="https://cdn.staticfile.org/jspdf/1.5.3/jspdf.min.js"></script>
+  <title>inputIcon图标选择器 | Avue</title>
+  <meta name="generator" content="VuePress 1.8.2">
+  
+  <meta name="description" content="前端搬砖神器,让数据驱动视图,更加贴合企业开发">
+  
+  <link rel="preload" href="/assets/css/0.styles.eaf7638d.css" as="style"><link rel="preload" href="/assets/js/app.80ecf531.js" as="script"><link rel="preload" href="/assets/js/3.2964d7bd.js" as="script"><link rel="preload" href="/assets/js/19.b9e1d12b.js" as="script"><link rel="prefetch" href="/assets/js/10.9a642b45.js"><link rel="prefetch" href="/assets/js/100.53215d0c.js"><link rel="prefetch" href="/assets/js/101.5c96b3b7.js"><link rel="prefetch" href="/assets/js/102.aaa7db9d.js"><link rel="prefetch" href="/assets/js/103.c56d1dd3.js"><link rel="prefetch" href="/assets/js/104.38334615.js"><link rel="prefetch" href="/assets/js/105.6a2587bd.js"><link rel="prefetch" href="/assets/js/106.760bf249.js"><link rel="prefetch" href="/assets/js/107.f77e1466.js"><link rel="prefetch" href="/assets/js/108.b2fed7df.js"><link rel="prefetch" href="/assets/js/109.ce416f49.js"><link rel="prefetch" href="/assets/js/11.5ff5566f.js"><link rel="prefetch" href="/assets/js/110.04d5b4c4.js"><link rel="prefetch" href="/assets/js/111.95948511.js"><link rel="prefetch" href="/assets/js/112.ee379404.js"><link rel="prefetch" href="/assets/js/113.52405dd5.js"><link rel="prefetch" href="/assets/js/114.40ce2506.js"><link rel="prefetch" href="/assets/js/115.d70827a9.js"><link rel="prefetch" href="/assets/js/116.b26574d3.js"><link rel="prefetch" href="/assets/js/117.f9c9836b.js"><link rel="prefetch" href="/assets/js/118.968a516c.js"><link rel="prefetch" href="/assets/js/119.6ef684b5.js"><link rel="prefetch" href="/assets/js/12.35a09b66.js"><link rel="prefetch" href="/assets/js/120.c603ec46.js"><link rel="prefetch" href="/assets/js/121.4fd889ac.js"><link rel="prefetch" href="/assets/js/122.359b1b44.js"><link rel="prefetch" href="/assets/js/123.5aa5cf18.js"><link rel="prefetch" href="/assets/js/124.e2e3972b.js"><link rel="prefetch" href="/assets/js/125.1645abf7.js"><link rel="prefetch" href="/assets/js/126.5ba96fc7.js"><link rel="prefetch" href="/assets/js/127.26dd54dc.js"><link rel="prefetch" href="/assets/js/128.47d295d7.js"><link rel="prefetch" href="/assets/js/129.e997cf1b.js"><link rel="prefetch" href="/assets/js/13.0a3bfa05.js"><link rel="prefetch" href="/assets/js/130.720f991f.js"><link rel="prefetch" href="/assets/js/131.90ec876b.js"><link rel="prefetch" href="/assets/js/132.94c3447e.js"><link rel="prefetch" href="/assets/js/133.b42695ed.js"><link rel="prefetch" href="/assets/js/134.c02b573d.js"><link rel="prefetch" href="/assets/js/135.a499347a.js"><link rel="prefetch" href="/assets/js/136.7da22e56.js"><link rel="prefetch" href="/assets/js/137.b7568bc8.js"><link rel="prefetch" href="/assets/js/138.e20af1e2.js"><link rel="prefetch" href="/assets/js/139.c74198d3.js"><link rel="prefetch" href="/assets/js/14.69929fde.js"><link rel="prefetch" href="/assets/js/140.236d4505.js"><link rel="prefetch" href="/assets/js/141.2e6e6586.js"><link rel="prefetch" href="/assets/js/142.f4ab4f4e.js"><link rel="prefetch" href="/assets/js/143.adf6d843.js"><link rel="prefetch" href="/assets/js/144.196745b1.js"><link rel="prefetch" href="/assets/js/145.b07ebf8c.js"><link rel="prefetch" href="/assets/js/146.0c02f11f.js"><link rel="prefetch" href="/assets/js/147.fa87e453.js"><link rel="prefetch" href="/assets/js/148.8b91b135.js"><link rel="prefetch" href="/assets/js/149.5ad9c57d.js"><link rel="prefetch" href="/assets/js/15.ab3e71a3.js"><link rel="prefetch" href="/assets/js/150.46eb4a53.js"><link rel="prefetch" href="/assets/js/151.49e17926.js"><link rel="prefetch" href="/assets/js/152.979b5271.js"><link rel="prefetch" href="/assets/js/153.6267d748.js"><link rel="prefetch" href="/assets/js/154.82b227d5.js"><link rel="prefetch" href="/assets/js/155.dca9e48e.js"><link rel="prefetch" href="/assets/js/156.9378eb60.js"><link rel="prefetch" href="/assets/js/157.d94b251a.js"><link rel="prefetch" href="/assets/js/158.2a7bcb5d.js"><link rel="prefetch" href="/assets/js/159.82fece72.js"><link rel="prefetch" href="/assets/js/16.1636b545.js"><link rel="prefetch" href="/assets/js/160.2b2edbc4.js"><link rel="prefetch" href="/assets/js/161.f96d3b1f.js"><link rel="prefetch" href="/assets/js/162.ee68732e.js"><link rel="prefetch" href="/assets/js/163.9825cc43.js"><link rel="prefetch" href="/assets/js/164.8217b1b6.js"><link rel="prefetch" href="/assets/js/165.dffa9162.js"><link rel="prefetch" href="/assets/js/166.1d4a314d.js"><link rel="prefetch" href="/assets/js/167.e5a5c41f.js"><link rel="prefetch" href="/assets/js/168.5806dea5.js"><link rel="prefetch" href="/assets/js/169.717832a1.js"><link rel="prefetch" href="/assets/js/17.a60896d9.js"><link rel="prefetch" href="/assets/js/170.202c9f72.js"><link rel="prefetch" href="/assets/js/171.c3470f09.js"><link rel="prefetch" href="/assets/js/18.78d4b84c.js"><link rel="prefetch" href="/assets/js/2.c7c0fe39.js"><link rel="prefetch" href="/assets/js/20.49691a98.js"><link rel="prefetch" href="/assets/js/21.9ce293a5.js"><link rel="prefetch" href="/assets/js/22.d368590a.js"><link rel="prefetch" href="/assets/js/23.479cf6f2.js"><link rel="prefetch" href="/assets/js/24.90e5aeab.js"><link rel="prefetch" href="/assets/js/25.73d64e1c.js"><link rel="prefetch" href="/assets/js/26.ae18953c.js"><link rel="prefetch" href="/assets/js/27.d6246335.js"><link rel="prefetch" href="/assets/js/28.d956ae66.js"><link rel="prefetch" href="/assets/js/29.5a2d7c30.js"><link rel="prefetch" href="/assets/js/30.0176f4fa.js"><link rel="prefetch" href="/assets/js/31.5bc4cc02.js"><link rel="prefetch" href="/assets/js/32.4d162754.js"><link rel="prefetch" href="/assets/js/33.7957456d.js"><link rel="prefetch" href="/assets/js/34.2c557fc9.js"><link rel="prefetch" href="/assets/js/35.d5fbc39c.js"><link rel="prefetch" href="/assets/js/36.3cac8a47.js"><link rel="prefetch" href="/assets/js/37.b809195a.js"><link rel="prefetch" href="/assets/js/38.ac23acf1.js"><link rel="prefetch" href="/assets/js/39.a2582377.js"><link rel="prefetch" href="/assets/js/4.ec35463d.js"><link rel="prefetch" href="/assets/js/40.3ce3d051.js"><link rel="prefetch" href="/assets/js/41.80451fa6.js"><link rel="prefetch" href="/assets/js/42.50d826b4.js"><link rel="prefetch" href="/assets/js/43.8a8831d8.js"><link rel="prefetch" href="/assets/js/44.b730c6b8.js"><link rel="prefetch" href="/assets/js/45.00310782.js"><link rel="prefetch" href="/assets/js/46.184140bc.js"><link rel="prefetch" href="/assets/js/47.1190b0c5.js"><link rel="prefetch" href="/assets/js/48.f6bd69b2.js"><link rel="prefetch" href="/assets/js/49.d71903d2.js"><link rel="prefetch" href="/assets/js/5.89a320df.js"><link rel="prefetch" href="/assets/js/50.207b5f1f.js"><link rel="prefetch" href="/assets/js/51.f91ba89f.js"><link rel="prefetch" href="/assets/js/52.6588fbac.js"><link rel="prefetch" href="/assets/js/53.4cdfadaa.js"><link rel="prefetch" href="/assets/js/54.621bb093.js"><link rel="prefetch" href="/assets/js/55.ec4c9925.js"><link rel="prefetch" href="/assets/js/56.bf155a31.js"><link rel="prefetch" href="/assets/js/57.72c0404d.js"><link rel="prefetch" href="/assets/js/58.44ee33eb.js"><link rel="prefetch" href="/assets/js/59.2398f6bf.js"><link rel="prefetch" href="/assets/js/6.b1d1088a.js"><link rel="prefetch" href="/assets/js/60.339a2b21.js"><link rel="prefetch" href="/assets/js/61.63bcf308.js"><link rel="prefetch" href="/assets/js/62.7a97d70a.js"><link rel="prefetch" href="/assets/js/63.0cc13c10.js"><link rel="prefetch" href="/assets/js/64.2cf7d1c4.js"><link rel="prefetch" href="/assets/js/65.d4af9228.js"><link rel="prefetch" href="/assets/js/66.ca8ad686.js"><link rel="prefetch" href="/assets/js/67.69e15abc.js"><link rel="prefetch" href="/assets/js/68.1a060b16.js"><link rel="prefetch" href="/assets/js/69.8005f3d4.js"><link rel="prefetch" href="/assets/js/7.61195da9.js"><link rel="prefetch" href="/assets/js/70.f5d9033d.js"><link rel="prefetch" href="/assets/js/71.820eb71b.js"><link rel="prefetch" href="/assets/js/72.3eaf3285.js"><link rel="prefetch" href="/assets/js/73.6529a2da.js"><link rel="prefetch" href="/assets/js/74.0d60b666.js"><link rel="prefetch" href="/assets/js/75.b0b73ab1.js"><link rel="prefetch" href="/assets/js/76.67cd4d1a.js"><link rel="prefetch" href="/assets/js/77.1daaaa14.js"><link rel="prefetch" href="/assets/js/78.a9c2699f.js"><link rel="prefetch" href="/assets/js/79.ece31231.js"><link rel="prefetch" href="/assets/js/8.8efaa5aa.js"><link rel="prefetch" href="/assets/js/80.41536cdd.js"><link rel="prefetch" href="/assets/js/81.777ad48a.js"><link rel="prefetch" href="/assets/js/82.f4497f19.js"><link rel="prefetch" href="/assets/js/83.3b818a1f.js"><link rel="prefetch" href="/assets/js/84.730fe470.js"><link rel="prefetch" href="/assets/js/85.79be25ee.js"><link rel="prefetch" href="/assets/js/86.53824ee3.js"><link rel="prefetch" href="/assets/js/87.89b74d46.js"><link rel="prefetch" href="/assets/js/88.ce7fb98f.js"><link rel="prefetch" href="/assets/js/89.6a180033.js"><link rel="prefetch" href="/assets/js/9.3c98c391.js"><link rel="prefetch" href="/assets/js/90.e6e7b583.js"><link rel="prefetch" href="/assets/js/91.145405f5.js"><link rel="prefetch" href="/assets/js/92.a4c1ba11.js"><link rel="prefetch" href="/assets/js/93.910b2d2f.js"><link rel="prefetch" href="/assets/js/94.e8bce811.js"><link rel="prefetch" href="/assets/js/95.dfa12894.js"><link rel="prefetch" href="/assets/js/96.05fc4d22.js"><link rel="prefetch" href="/assets/js/97.3a65bf80.js"><link rel="prefetch" href="/assets/js/98.6ed0457a.js"><link rel="prefetch" href="/assets/js/99.dcdcd043.js">
+  <link rel="stylesheet" href="/assets/css/0.styles.eaf7638d.css">
+</head>
+
+<body>
+  <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/images/logo.png" alt="Avue" class="logo"> <span class="site-name can-hide">Avue</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/installation.html" class="nav-link">
+  开发指南
+</a></li><li class="dropdown-item"><!----> <a href="/component/input.html" class="nav-link">
+  单组件
+</a></li><li class="dropdown-item"><!----> <a href="/form/form.html" class="nav-link">
+  Form组件
+</a></li><li class="dropdown-item"><!----> <a href="/crud/crud.html" class="nav-link">
+  Crud组件
+</a></li><li class="dropdown-item"><!----> <a href="/data/data0.html" class="nav-link">
+  Data组件
+</a></li><li class="dropdown-item"><!----> <a href="/default/contextmenu.html" class="nav-link">
+  Default其它组件
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器1折起" class="dropdown-title"><span class="title">服务器1折起</span> <span class="arrow down"></span></button> <button type="button" aria-label="服务器1折起" class="mobile-dropdown-title"><span class="title">服务器1折起</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=vqed4m0j" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  新用户专项优惠
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://chuangke.aliyun.com/special/88?taskCode=shuangchuang_88_lb&amp;recordId=876642&amp;userCode=vqed4m0j" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  企业专项优惠
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/installation.html" class="nav-link">
+  开发指南
+</a></li><li class="dropdown-item"><!----> <a href="/component/input.html" class="nav-link">
+  单组件
+</a></li><li class="dropdown-item"><!----> <a href="/form/form.html" class="nav-link">
+  Form组件
+</a></li><li class="dropdown-item"><!----> <a href="/crud/crud.html" class="nav-link">
+  Crud组件
+</a></li><li class="dropdown-item"><!----> <a href="/data/data0.html" class="nav-link">
+  Data组件
+</a></li><li class="dropdown-item"><!----> <a href="/default/contextmenu.html" class="nav-link">
+  Default其它组件
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="服务器1折起" class="dropdown-title"><span class="title">服务器1折起</span> <span class="arrow down"></span></button> <button type="button" aria-label="服务器1折起" class="mobile-dropdown-title"><span class="title">服务器1折起</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=vqed4m0j" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  新用户专项优惠
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://chuangke.aliyun.com/special/88?taskCode=shuangchuang_88_lb&amp;recordId=876642&amp;userCode=vqed4m0j" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  企业专项优惠
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/component/input.html" class="sidebar-link">input输入框</a></li><li><a href="/component/input-tree.html" class="sidebar-link">inputTree树型组件</a></li><li><a href="/component/input-number.html" class="sidebar-link">inputNumber数字框</a></li><li><a href="/component/input-color.html" class="sidebar-link">inputColor颜色选择器</a></li><li><a href="/component/input-icon.html" aria-current="page" class="active sidebar-link">inputIcon图标选择器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/component/input-icon.html#inputicon图标选择器" class="sidebar-link">inputIcon图标选择器</a></li></ul></li><li><a href="/component/input-map.html" class="sidebar-link">inputMap地图选择器</a></li><li><a href="/component/input-table.html" class="sidebar-link">inputTabel表格选择器</a></li><li><a href="/component/array.html" class="sidebar-link">array 数组输入框</a></li><li><a href="/component/img.html" class="sidebar-link">img图片输入框</a></li><li><a href="/component/url.html" class="sidebar-link">url超链接输入框</a></li><li><a href="/component/select.html" class="sidebar-link">select选择框</a></li><li><a href="/component/radio.html" class="sidebar-link">radio单选</a></li><li><a href="/component/checkbox.html" class="sidebar-link">checkbox多选</a></li><li><a href="/component/switch.html" class="sidebar-link">switch开关</a></li><li><a href="/component/datetime.html" class="sidebar-link">datetime日期时间</a></li><li><a href="/component/time.html" class="sidebar-link">time时间</a></li><li><a href="/component/rate.html" class="sidebar-link">rate评价框</a></li><li><a href="/component/slider.html" class="sidebar-link">slider滑动框</a></li><li><a href="/component/cascader.html" class="sidebar-link">cascader级联选择器</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="inputicon图标选择器"><a href="#inputicon图标选择器" class="header-anchor">#</a> inputIcon图标选择器</h2> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- 添加svg图标库 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>//at.alicdn.com/t/font_2621503_zcbiqy2g1i.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>:::demo</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-row</span> <span class="token attr-name">:span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>24<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-col</span> <span class="token attr-name">:span</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>6<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+   值:{{form}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">/&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>avue-input-icon</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form<span class="token punctuation">&quot;</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>请选择图标<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:icon-list</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>iconList<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>avue-input-icon</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-col</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-row</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        form<span class="token operator">:</span><span class="token string">'el-icon-info'</span><span class="token punctuation">,</span>
+        iconList<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            label<span class="token operator">:</span> <span class="token string">'阿里图标-Symbol图标'</span><span class="token punctuation">,</span>
+            list<span class="token operator">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jigou'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxinguanli'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'发票管理系统'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fapiaoguanlixitong'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaose'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-heimingdan2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'KHCFDC_附件'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fujian4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wendang3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'刷卡'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-shuaka'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingche3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'对象存储OSS'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duixiangcunchuOSS'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ziyuan1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'对象存储服务'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-beikongshuiwupingtaimenhu-tubiao_duixiangcunchufuwu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库_jurassic'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jurassic_data'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-rizhi1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'订单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-5'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jigou1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构人员'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jigourenyuan'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli5'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据监控'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-shujujiankong'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'活动展示'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-huodongzhanshi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'vip invitation'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-vipinvitation'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli6'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'用户'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-user'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-icon_A'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'dg 数据库网关'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-dgshujukuwangguan'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'oss 对象存储'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ossduixiangcunchu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'oss 对象存储'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ossduixiangcunchu1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxin2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jigou2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'展示'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zhanshi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'VIP'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-VIP1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'用户'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-yonghu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'进出明细'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jinchumingxi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ziyuan160'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-gangwei1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxin3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'图表'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiao1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingche4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'微信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-weixin3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-icon_rzhi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui5'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui6'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-gangweiguanli'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'字典管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zidianguanli'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui7'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wendang4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'订单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-biaoqianA01_dingdan-14'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jigou3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位信息'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-gangweixinxi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui8'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构性质'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiaozhizuomoban_jigouxingzhi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian5'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'进出'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiaozhizuomoban-10'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位调动'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiaozhizuomoban-98'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'展板展示'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zhanbanzhanshi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'发票'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fapiao'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-document'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian6'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wendang5'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信余额'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxinyue'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'用户'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-user-01'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaose1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'发票'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fapiao1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'消息 短信 信息'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-xiaoxiduanxinxinxi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'监控'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiankong'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-database-fill'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单-02'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-heimingdan-02'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-heimingdanguanli'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxin4'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'订单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-dingdan2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文件类型-附件'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wenjianleixing-fujian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据监控'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-shujujiankong1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli_huaban1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'发票'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fapiao2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'用户'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-yonghu1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui9'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'卡包'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-kabao'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ziyuan87'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-rizhi2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车场'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingchechang3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'vip-card'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-vip-card'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli7'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-rizhi3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据化展示'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-shujuhuazhanshi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxin'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车场'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingchechang1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'微信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-weixin'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-chakantiezigengduoheimingdan'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-07'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'机构建筑'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jigoujianzhu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车场'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingchechang2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'微信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-weixin1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单核查'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiao_Artboard'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'附件'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fujian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'附件'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fujian1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'卡'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-qia'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-gangweiquanxian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-heimingdan'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingche'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-database'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库体系 database architecture'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zuzhiheguanlitubiao-'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'对象存储new'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duixiangcunchu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingche1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-drxx88'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'卡包'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-qiabao'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单查询'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-heimingdanchaxun'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingche2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'订单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-dingdan'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'卡票'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-qiapiao'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon--'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wendang'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'反馈'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fankui1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'发票'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-icon-test'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'订单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-dingdan1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'用户'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-techreport-'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'进出'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jinchu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wendang1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wendang2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文档'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiaozhizuomobanyihuifu-'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxin1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'字典'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zidian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'VIP客户停车'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ziyuan'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'微信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-weixin2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'1角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-heimingdan1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'订单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-xingzhuanggongnengtubiao-'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'附件'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fujian2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'oss 对象存储OSS'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-ossduixiangcunchuOSS'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'图表'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tubiao'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信2-01'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-duanxin-'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'管教岗位'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-guanjiaogangwei'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-icon--quanxian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'文件-日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-wj-rz'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'数据库'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-shujuku'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'角色管理'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-jiaoseguanli3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'黑名单'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-cedaohang-kehuguanli'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'日志'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-rizhi'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位调动@2x'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-gangweitiaodongx'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'短信'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-mobile'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'vip'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-vip'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'附件'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-fujian3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'字典'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zidian1'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'VIP'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-VIP'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'收藏用户'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-shoucangyonghu'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'29-数据字典'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon--shujuzidian'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'权限'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-quanxian3'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'岗位'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-gangwei'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'字典'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-zidian2'</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span>
+                label<span class="token operator">:</span> <span class="token string">'停车场'</span><span class="token punctuation">,</span>
+                value<span class="token operator">:</span> <span class="token string">'#icon-tingchechang'</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          label<span class="token operator">:</span> <span class="token string">'基本图标'</span><span class="token punctuation">,</span>
+          list<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'el-icon-info'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-error'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-error'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-success'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-warning'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-question'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+          label<span class="token operator">:</span> <span class="token string">'方向图标'</span><span class="token punctuation">,</span>
+          list<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'el-icon-info'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-back'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-arrow-left'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-arrow-down'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-arrow-right'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-arrow-up'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          label<span class="token operator">:</span> <span class="token string">'符号图标'</span><span class="token punctuation">,</span>
+          list<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'el-icon-plus'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-minus'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-close'</span><span class="token punctuation">,</span> <span class="token string">'el-icon-check'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre></div><p>:::</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/component/input-color.html" class="prev">
+        inputColor颜色选择器
+      </a></span> <span class="next"><a href="/component/input-map.html">
+        inputMap地图选择器
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><Notice></Notice></div></div>
+  <script src="/assets/js/app.80ecf531.js" defer></script><script src="/assets/js/3.2964d7bd.js" defer></script><script src="/assets/js/19.b9e1d12b.js" defer></script>
+</body>
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?eaaf806ed9b006c2f8b0ef48ca3b391b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<style>
+  * {
+    cursor: url(https://files-cdn.cnblogs.com/files/yocichen/icon.bmp), auto;
+  }
+</style>
+
+</html>
