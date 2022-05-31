@@ -1,0 +1,1 @@
+import{a as e,b as a}from"./index.2c7b4af6.js";const d=t=>e({url:a+"/crud/list",method:"get",meta:{isSerialize:!0},params:t}),i=t=>e.delete(a+"/crud",{params:{id:t}}),u=t=>e({url:a+"/crud",method:"post",meta:{isSerialize:!0},data:t}),o=(t,r)=>e({url:a+"/crud",method:"put",meta:{isSerialize:!0},data:r});export{u as add,i as del,d as list,o as update};

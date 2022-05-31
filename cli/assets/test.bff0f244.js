@@ -1,1 +1,0 @@
-import{_ as t,r as o,o as a,j as n,u as s,h as c}from"./index.20fd9f9c.js";const r={name:"wel",data(){return{}},computed:{},created(){},methods:{}},_=c("\u6D4B\u8BD5\u9875");function d(p,i,u,l,m,f){const e=o("basic-container");return a(),n(e,null,{default:s(()=>[_]),_:1})}var x=t(r,[["render",d]]);export{x as default};
